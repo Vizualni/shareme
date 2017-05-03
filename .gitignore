@@ -1,0 +1,3 @@
+*.swp
+.virtualenv
+.DS_Store

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}"/>
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</head>
+
+<body>
+    <div class="container">
+        
+        <h3>Path: {{path}}</h3>
+        
+        <ul class="list-group">
+            {% for item in found_files: %}
+
+            <li class="list-group-item">
+                <a style="display: flex; color:black" href="{{url_for('.show_file', f=item.relative_path, _external=True)}}">
+                    <span class="glyphicon {% if item.is_file:  %} glyphicon-save-file {% else %}glyphicon-folder-open{%endif%}">&nbsp;</span>{{item.name}}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    
+    </div>
+</body>
+
+</html>
